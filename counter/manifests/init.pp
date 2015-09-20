@@ -1,6 +1,6 @@
-include wget
 # WORK IN PROGRESS!
 # Uptime Counter Puppet module
+# REQUIRES PUPPET v4+!
 # Database preview available through http://localhost:9696
 # Written by Alan Matuszczak
 # LICENSED UNDER GPL v2 LICENSE, SEE http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
@@ -11,7 +11,7 @@ class counter (
 # A RECENT VERSION OF YOUR DISTRO, ONE WHICH INCLUDES SYSTEMD BY DEFAULT
 # UBUNTU 15.04+ AND DEBIAN 8+ !
   $service_file_url = $::operatingsystem ? {
-    'Fedora', 'Ubuntu', 'Debian' => 'https://seacloud.cc/f/896b41797b/?dl=1',
+    /(Fedora|Ubuntu|Debian)/ => 'https://seacloud.cc/f/896b41797b/?dl=1',
   }
 
   $sqlite_package =  $::osfamily ? {
